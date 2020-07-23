@@ -1,0 +1,9 @@
+body {
+  background: rbg(250 250, 250);
+}
+
+.container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
