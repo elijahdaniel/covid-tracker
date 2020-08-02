@@ -1,28 +1,55 @@
 import React from 'react'
 
-import { Cards, Chart, CountryPicker } from './components'
-import { fetchData } from './api'
+import { Cards, CountryPicker, Chart } from './components'
+import { fetchData } from './api/index'
 
 import styles from './App.module.css'
 
 class App extends React.Component {
   state = {
     data: {},
+    country: '',
   }
 
   async componentDidMount() {
-    const fetchedData = await fetchData()
+    const data = await fetchData()
 
-    this.setState({ data: fetchedData })
+    this.setState({ data })
+  }
+
+  handleCountryChange = async country => {
+    const data = await fetchData(country)
+
+    this.setState({ data, country: country })
   }
 
   render() {
-    const { data } = this.state
+    const { data, country } = this.state
+
     return (
       <div className={styles.container}>
         <Cards data={data} />
-        <Chart />
-        <CountryPicker />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Chart data={data} country={country} />
+
+        <footer>
+          &copy;{' '}
+          <a
+            href='http://www.github.com/elijahdaniel'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Elijah P.
+          </a>{' '}
+          - API by{' '}
+          <a
+            href='https://github.com/mathdroid/covid-19-api'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            mathdro
+          </a>
+        </footer>
       </div>
     )
   }

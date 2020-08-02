@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.card {
+  /* background: #1d2935 !important; */
+  margin: 0 2% !important;
+  /* color: #505050 !important; */
+}
+
+.infected {
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+  color: #505050 !important;
+}
+
+.recovered {
+  border-bottom: 10px solid rgba(36, 172, 36, 0.5);
+}
+
+.deaths {
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+recovered {
+  color: rgba(27, 126, 27, 0.502);
+}
+
+date {
+  color: rgb(124, 124, 124);
+}
